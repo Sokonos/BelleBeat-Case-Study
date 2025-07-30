@@ -72,8 +72,9 @@ Here is the SQL query that was used to create it ->
 
 <img width="694" height="160" alt="Custom_Table_for_WHDPD" src="https://github.com/user-attachments/assets/8d2e80de-87c6-4be7-b400-7c3a94fd2a1b" />
 
-
 # Analyze
+
+
 
 # Share
 ```
