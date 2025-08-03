@@ -16,12 +16,14 @@ how to apply that knowledge to Bellebeat's products and marketing strategy.
 ### <ins>Business Tasks</ins>
 
 * Find trends in how consumers use their smart fitness devices
-* Create recommendations based on the trends for a specific Bellebeat product
+* Create recommendations based on the trends for a specific Bellebeat product. I have chosen to apply the insights to their product Time (Time is a wellness watch).
 * Also, will create recommendations on how to improve Bellebeat's marketing strategy  
 
 # Prepare
 ### <ins>Data Sources</ins>
-Datasets that I used: Fitbit Fitness Tracker Data by Möbius and Wearable Health Performance Data by Pratyush Puri.
+Datasets that I used: Fitbit Fitness Tracker Data by Möbius and Wearable Health Performance Data by Pratyush Puri. 
+
+This is a link to the descriptions of each data field in the FitBit dataset -> [Descriptions PDF](https://storage.googleapis.com/kaggle-forum-message-attachments/2787666/20656/fitabasedatadictionary102320.pdf)
 
 ### <ins>Links to the Datasets</ins>
  Here are the links for both of the datasets used in this case study: [Fitbit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit/data/), [Wearable Health Device Performance Data](https://www.kaggle.com/datasets/pratyushpuri/wearable-health-devices-performance-analysis)
@@ -54,7 +56,7 @@ Datasets that I used: Fitbit Fitness Tracker Data by Möbius and Wearable Health
 ### <ins>Tools Used</ins>
   Excel was used to inspect and clean both datasets. Also used Google BigQuery to combine and store the cleaned data from the FitBit csv files. Curated a table from the wearable health device performance data using BigQuery. 
 ### <ins>Cleaning the Data</ins>
-Counted the unique number of Ids for the dailyActivity_merged (March-April) file and found a discrepancy. The number of unique Ids was 35, however, the source that I got the data from claimed that only 30 fitbit user's consented to having their data tracked. I am unsure if some of the Ids correspond to the same user.
+  Counted the unique number of Ids for the dailyActivity_merged (March-April) file and found a discrepancy. The number of unique Ids was 35, however, the source that I got the data from claimed that only 30 fitbit user's consented to having their data tracked. I am unsure if some of the Ids correspond to the same user.
 
 <img width="1382" height="929" alt="Screenshot 2025-07-29 205737" src="https://github.com/user-attachments/assets/5ef00fb1-2508-46c6-b023-ff2978c46356" />
 
@@ -62,9 +64,9 @@ One explanation is that some of the Ids correspond to the same user, but the use
 
 <img width="1020" height="758" alt="ID_inconsistancy" src="https://github.com/user-attachments/assets/36542644-4419-4ccf-b893-d48dae592983" />
 
-Since it can not be ascertained if some of the Ids and corresponding data should be removed, the data will be kept as is. The other coloumns did not have any issues with them. 
+Since it cannot be ascertained if some of the Ids and corresponding data should be removed, the data will be kept as is. The other coloumns did not have any issues with them. 
 
-In BigQuery a table was made from the [Wearable Health Device Performance Data](https://www.kaggle.com/datasets/pratyushpuri/wearable-health-devices-performance-analysis) with only the columns that were relevant to the analysis. This is the schema of the table and the first couple of rows from it: 
+In BigQuery I created a table was made from the [Wearable Health Device Performance Data](https://www.kaggle.com/datasets/pratyushpuri/wearable-health-devices-performance-analysis) with only the columns that were relevant to the analysis. This is the schema of the table and the first couple of rows from it: 
 
 <img width="300" height="550" alt="Screenshot 2025-07-29 224018" src="https://github.com/user-attachments/assets/03f550f2-c50f-4495-b00b-04310407196a" /> <img width="600" height="591" alt="Screenshot 2025-07-29 224854" src="https://github.com/user-attachments/assets/5c305134-8055-4a2b-a7f5-88d324d7e6b5" />
 
@@ -73,8 +75,43 @@ Here is the SQL query that was used to create it ->
 <img width="694" height="160" alt="Custom_Table_for_WHDPD" src="https://github.com/user-attachments/assets/8d2e80de-87c6-4be7-b400-7c3a94fd2a1b" />
 
 # Analyze
+I used Google BigQuery to combine the daily activites csv files into one table; this is so the complete timeframe (3 months) of data is in one place. Here is the SQL query I wrote to do so -> 
+
+<img width="656" height="161" alt="Query_Joing_the_FitBit_Datasets" src="https://github.com/user-attachments/assets/485b5378-7dd8-45ea-8ad5-00e38cd21c8d" />
+
+To find the total intensity and logged total intensity by day, I made the following query:
+
+<img width="547" height="171" alt="Screenshot 2025-08-01 202509" src="https://github.com/user-attachments/assets/3d852aa1-f3e8-4907-92e6-d8a36b6f09fd" />
+
+This was the result 
+
+<img width="536" height="209" alt="Screenshot 2025-08-01 202737" src="https://github.com/user-attachments/assets/f3f8d9ed-0f56-4c54-964c-157224aaeb90" />
+
+We can see that Sunday has a total distance of 919.53 but the logged distance is zero. This suggests that none of the participants (30 participants) logged data on Sunday over the 3 months that the data was collected; this seems unlikely, however, there does not seem to be a good explaination for this. Also, from this query we can see that Tuesday had the most activity (intensity) at 1141.24 and Sunday the least at 919.53. 
+When we calculate the ratio of the logged distance to the total distance we see that it is only 2%. This could suggest that only 2% of the activites done by the users was activity they felt should be recorded. It is good to keep in mind that the activity (intensity) is tracked from 0-3 depending on the level of activity detected, so a majority of the activity detected could just be from everyday tasks or going places rather than exercise.
+
+We can incease the granularity to check for what time of day had more activity (intensity). Here is the SQL code:
+
+<img width="740" height="202" alt="image" src="https://github.com/user-attachments/assets/f6ffd98b-732c-436a-94d6-5ff3a338f148" />
 
 
+Here is the output
+
+<img width="379" height="77" alt="Screenshot 2025-08-03 003839" src="https://github.com/user-attachments/assets/905631f3-d687-4e34-9888-58fc1b70660a" />
+
+
+We see that there is more activity beeing done in the PM. This is not enough granularity as it does not cover whether it is happening in the afternoon or evening. So, we need to split PM into afternoon and evening, and split AM into night and moring. The intervals for each are as follows: Night 12:00 AM - 4:59 AM, Morning 5:00 AM - 11:59 AM, Afternoon 12:00 PM - 5:59 PM, Evening 6:00 PM - 11:59 PM.
+
+This query does that:
+
+<img width="809" height="217" alt="image" src="https://github.com/user-attachments/assets/6f33f949-272e-4057-859b-a3a55bd85116" />
+
+
+Output
+
+<img width="381" height="139" alt="image" src="https://github.com/user-attachments/assets/29abe8aa-f0c3-411a-902e-bacec344830b" />
+
+Here we see that the time of day with the highest activity is the afternoon. The time of day with the least amount of activity is at night with a measly 11016. 
 
 # Share
 ```
