@@ -178,7 +178,7 @@ Unsurpisingly we see that the more connection features the device has the higher
 * Sleep records stayed more or less the same throughout the week
 * Total sleep hours was also similar throuhout the week; Monday being the only exception as it is on average 100 hours lower than the other days 
 * Average hours asleep was in the range from 6 to 7 hours
-* Devices with all 4 connectivity features had the highest user satisfaction rating
+* The amount of connectivity features had little difference in user satisfaction ratings. 
 
 # Act
 ### <ins>Recommendations</ins>
