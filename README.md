@@ -111,11 +111,49 @@ Output
 
 <img width="381" height="139" alt="image" src="https://github.com/user-attachments/assets/29abe8aa-f0c3-411a-902e-bacec344830b" />
 
-Here we see that the time of day with the highest activity is the afternoon. The time of day with the least amount of activity is at night with a measly 11016. 
+Here we see that the time of day with the highest activity is the afternoon. The time of day with the least amount of activity is at night with a measly 11016.
+
+Now to figure out the amount of calories burned. While this will not be that useful for answering the business task, it is still good to know in conjunction with the rest of the activity data. 
+This query will aggregate total calories burned by the day of the week:
+
+<img width="550" height="183" alt="Screenshot 2025-08-02 005226" src="https://github.com/user-attachments/assets/2fd062be-5de0-4bd5-9858-cee97758e62e" />
+
+Output
+
+<img width="405" height="214" alt="Screenshot 2025-08-02 005233" src="https://github.com/user-attachments/assets/34d25ef1-12c7-4a33-8efe-07aeb9913978" />
+
+Here we see that the amount of calories burned per day is roughly the same with little variance.
+
+One trend that would be useful to know is what the FitBit Users tracking preferences are. This can be sone by taking the distinct number of Ids and divide by 30. This is not accurate as some Ids might belong to the same user, but it will give a rough idea of how many users are tracking certain kinds of activites such as intensity and sleep.
+
+This is the query for activity tracking preferences:
+
+<img width="617" height="81" alt="Tracking_Activites" src="https://github.com/user-attachments/assets/1ff59bbe-8d69-4ca2-a381-daaf459a361e" />
+
+Output
+
+<img width="258" height="57" alt="tracking_activites_preferences_outpu" src="https://github.com/user-attachments/assets/12e7d736-78b0-4314-b44c-3c2262ca4324" />
+
+The total was divided by 35 in this case as the number of unique ids surpassed 30, and also because 35 was the number of unique Ids for activity data. If it was divided by 30, the percentage would be greater than 100 percent. While this could still just be interpreted as every user having this tracking preference, it would be best to keep it in the bounds of 0 to 100 percent to be consistent. 
+
+This is the query for sleep tracking preferences:
+
+<img width="503" height="69" alt="SleepTrackingPreferences" src="https://github.com/user-attachments/assets/8a7304e6-706a-4e05-b6cb-2d24d841858f" />
+
+Output
+
+<img width="256" height="60" alt="SleepPreferencesOutput" src="https://github.com/user-attachments/assets/041b8b59-1cc9-41fa-9cc3-a2a78b8b1e7b" />
+
 
 # Share
-```
-```
+### <ins> DashBoard </ins>
+
+<img width="1869" height="699" alt="Dashboard" src="https://github.com/user-attachments/assets/2ad8d3e8-7732-4b98-8022-020dc91111fb" />
+
+### <ins> Comments </ins>
+*
+*
+
+
 # Act
-```
-```
+
