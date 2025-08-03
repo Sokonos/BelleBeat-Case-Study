@@ -182,5 +182,10 @@ Unsurpisingly we see that the more connection features the device has the higher
 
 # Act
 ### <ins>Recommendations</ins>
+* Since a majority of users have tracking preferences for activity (steps, distance traveledm intensity of activity, and calories burned) and sleep, marketing should focus on these tracking abilites on the smart watch Time.
+* Users only log data manually 2% of the time. Most attractive attribute would seem to be the passive tracking done by smart devices, so marketing should focus on this aspect by highlighting what it does in the background.
+* Most activity happens during the afternoon, so this would be a good time to send the user a reminder on their phone about actions they could take to keep their stats consistent throughout the week. Also, if the user had set goals in the app, then the reminder could be actions that they could take to acheive those goals for that day.
+* Could also tailor reminders based off of the time of day the user is most active instead of just the afternoon.
+  
 
 
