@@ -145,15 +145,42 @@ Output
 <img width="256" height="60" alt="SleepPreferencesOutput" src="https://github.com/user-attachments/assets/041b8b59-1cc9-41fa-9cc3-a2a78b8b1e7b" />
 
 
+I wanted to see what the user satisfaction was depending on the amount of connectivity types with smart health devices, so I used the wearable health device performance dataset for this. 
+
+Here is the query:
+
+<img width="620" height="131" alt="Screenshot 2025-08-03 155025" src="https://github.com/user-attachments/assets/605b58cc-5844-4ea9-ba53-06ad73426a97" />
+
+Output
+
+<img width="386" height="132" alt="User_Satisfaction_Rating_Output" src="https://github.com/user-attachments/assets/b2d29f89-3146-496c-9773-ad2287af11be" />
+
+
+Unsurpisingly we see that the more connection features the device has the higher the satisfaction rating. It is also good to note, however, that the differnce between the highest and lowest rating is not wide. The satisfaction ratings for the entire dataset only span from 6 to 9.5; this range does not give much variance in the first place, and it is probably skewing the results.
+
+
+
 # Share
 ### <ins> DashBoard </ins>
 
-<img width="1869" height="699" alt="Dashboard" src="https://github.com/user-attachments/assets/2ad8d3e8-7732-4b98-8022-020dc91111fb" />
+<img width="1869" height="1400" alt="image" src="https://github.com/user-attachments/assets/7c53ed82-a162-4117-bcc6-1bdaf8ba80f6" />
 
-### <ins> Comments </ins>
-*
-*
 
+
+### <ins> Insights </ins>
+* Tuesday was the day with the most distance traveled and distance logged
+* Only 2% of total distance traveled was logged by the users
+* Calories burned by day are similar with slight variance
+* Highest percent of activity (intensity) is done in the afternoon at 39%
+* Activity was lowest at night, becomes higher in the morning and afternoon, and falls in the evening
+* All users had their preferences set to track activity data (steps, intensity, and calories)
+* 80% of users had their preferences set to track sleep data
+* Sleep records stayed more or less the same throughout the week
+* Total sleep hours was also similar throuhout the week; Monday being the only exception as it is on average 100 hours lower than the other days 
+* Average hours asleep was in the range from 6 to 7 hours
+* Devices with all 4 connectivity features had the highest user satisfaction rating
 
 # Act
+### <ins>Recommendations</ins>
+
 
